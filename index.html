@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>GH Max Website Demo with Floating Max Widget</title>
+</head>
+<body style="font-family: sans-serif; background: #f8fafc; padding: 40px;">
+
+  <h1>Welcome to GH Max Davao Main Website</h1>
+  <p>Click the floating <strong>MX</strong> Messenger bubble in the bottom-right corner!</p>
+
+  <!-- ================================================================= -->
+  <!-- COPY THIS SNIPPET INTO ANY WEBSITE TO ADD THE FLOATING MAX WIDGET -->
+  <!-- ================================================================= -->
+  <div id="ghmax-widget-container" style="position: fixed; bottom: 24px; right: 24px; z-index: 99999; font-family: sans-serif;">
+    
+    <!-- Popup Chat Window (Hidden until clicked) -->
+    <div id="ghmax-chat-window" style="
+      display: none;
+      width: 400px;
+      max-width: calc(100vw - 32px);
+      height: 620px;
+      max-height: calc(100vh - 100px);
+      margin-bottom: 14px;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(11, 33, 54, 0.28);
+      border: 1px solid #e2e8f0;
+      background: #ffffff;
+    ">
+      <!-- PUT YOUR CURRENT VERCEL URL IN src="" BELOW! -->
+      <iframe
+        src="ghmax-assistant.vercel.app"
+        style="width: 100%; height: 100%; border: none;"
+        allow="camera; microphone"
+      ></iframe>
+    </div>
+
+    <!-- Floating Messenger Launcher Button -->
+    <button
+      onclick="
+        const win = document.getElementById('ghmax-chat-window');
+        const isOpen = win.style.display === 'block';
+        win.style.display = isOpen ? 'none' : 'block';
+        this.innerHTML = isOpen ? 'MX' : '✕';
+      "
+      style="
+        float: right;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: #0B2136;
+        color: #F5B800;
+        font-weight: 800;
+        font-size: 16px;
+        border: 2px solid #F5B800;
+        box-shadow: 0 8px 24px rgba(11, 33, 54, 0.35);
+        cursor: pointer;
+        transition: transform 0.2s ease;
+      "
+    >
+      MX
+    </button>
+  </div>
+
+</body>
+</html>
